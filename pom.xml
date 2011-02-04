@@ -5,7 +5,7 @@
 	<groupId>pequt</groupId>
 	<artifactId>servlet-skeleton</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>servlet-skeleton</name>
 	<url>http://maven.apache.org</url>
@@ -13,12 +13,86 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
+	<build>
+		<plugins>
+			<!-- copy resource files into WEB-INF/classes, mainly for log4j.xml -->
+			<resources>
+				<resource>
+					<directory>src/main/java</directory>
+					<excludes>
+						<exclude>**/*.java</exclude>
+					</excludes>
+				</resource>
+				<resource>
+					<directory>src/main/resources</directory>
+				</resource>
+			</resources>
+
+			<!-- place jsp and xml files -->
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<warSourceDirectory>webapp</warSourceDirectory>
+					<webappDirectory>../deploy</webappDirectory>
+				</configuration>
+			</plugin>
+			<!-- JDK version, source encoding -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- enable eclipse's tomcat running support -->
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<wtpContextName>/</wtpContextName>
+					<wtpversion>1.5</wtpversion>
+					<useProjectReferences>false</useProjectReferences>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<dependencies>
+		<!-- servlet api - toy servlet class only. should be eliminated -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- log4j + slj4j facade -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<!-- test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

@@ -5,12 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class AppTest {
-	private App dut;
+public class AppServletTest {
+	private AppServlet dut;
 	
 	@Before
 	public void setUp() {
-		dut = new App();
+		dut = new AppServlet();
 	}
 	
 	@Test

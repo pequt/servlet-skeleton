@@ -5,7 +5,9 @@ simple servlet-skeleton, worked with/for
 with :
 java 1.6.0 update 23
 maven 3.0.2
+git (msysgit)
+tortoisegit
 
 for :
-eclipse 3.6 helios
+eclipse 3.6 helios, for java ee
 tomcat 6.0.32
