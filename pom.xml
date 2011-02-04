@@ -15,20 +15,20 @@
 	</properties>
 
 	<build>
-		<plugins>
-			<!-- copy resource files into WEB-INF/classes, mainly for log4j.xml -->
-			<resources>
-				<resource>
-					<directory>src/main/java</directory>
-					<excludes>
-						<exclude>**/*.java</exclude>
-					</excludes>
-				</resource>
-				<resource>
-					<directory>src/main/resources</directory>
-				</resource>
-			</resources>
+		<!-- copy resource files into WEB-INF/classes, mainly for log4j.xml -->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 
+		<plugins>
 			<!-- place jsp and xml files -->
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
@@ -62,7 +62,7 @@
 	</build>
 
 	<dependencies>
-		<!-- servlet api - toy servlet class only. should be eliminated -->
+		<!-- servlet api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -70,21 +70,61 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- log4j + slj4j facade -->
+		<!-- spring 3 -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.0.5.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!-- log4j + slj4j facade -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.6.1</version>
 		</dependency>
 		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.6.1</version>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- required for exclusion of commons-logging in spring 3 core -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.6.1</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!-- test -->
@@ -92,6 +132,12 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.5</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

@@ -9,5 +9,9 @@ git (msysgit)
 tortoisegit
 
 for :
-eclipse 3.6 helios, for java ee
+eclipse 3.6 for java ee, WTP
 tomcat 6.0.32
+
+etc :
+should avoid commons-logging
+should avoid getting parameters from GET request now, too hard to get right
