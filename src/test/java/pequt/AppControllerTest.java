@@ -6,7 +6,6 @@ import static org.mockito.Mockito.*;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +17,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class AppControllerTest {
 	private AppController dut;
 	@Mock private HttpServletRequest req;
-	@Mock private HttpServletResponse resp;
 	
 	@Before
 	public void setUp() {
@@ -26,16 +24,15 @@ public class AppControllerTest {
 	}
 
 	@Test
-	public void handleRequest() throws Exception {
+	public void execute() {
 		when(req.getParameter("m")).thenReturn("hello");
-
-		Map<String, Object> result = dut.handleRequest(req, resp).getModel();
+		Map<String, Object> result = dut.execute(req).getModel();
 		assertEquals("hello", result.get("message"));
 	}
 	
 	@Test
-	public void handleRequest_default() throws Exception {
-		Map<String, Object> result = dut.handleRequest(req, resp).getModel();
+	public void execute_default() throws Exception {
+		Map<String, Object> result = dut.execute(req).getModel();
 		assertEquals("가나다", result.get("message"));
 	}
 }

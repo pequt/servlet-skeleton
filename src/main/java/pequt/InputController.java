@@ -1,24 +1,14 @@
 package pequt;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.AbstractController;
 
 @Controller
 @RequestMapping("/in")
-public class InputController extends AbstractController {
-	@Override
+public class InputController {
 	@RequestMapping
-	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public ModelAndView execute() {
 		return new ModelAndView("/WEB-INF/jsp/input.jsp");
-	}
-
-	@Override
-	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
 	}
 }

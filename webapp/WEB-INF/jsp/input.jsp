@@ -3,6 +3,13 @@
 <html>
 <head>
 <title>Character encoding test page</title>
+<script type="text/javascript">
+function ur() {
+	// alert(encodeURIComponent("ㄱ"));
+	var url = "%E3%84%B1";
+	location.href = "http://localhost:8080/app?m=" + url;
+}
+</script>
 </head>
 <body>
 <p>message to app</p>
@@ -11,5 +18,12 @@
 	<input type="submit" value="Submit" />
 	<input type="reset" value="Reset" />
 </form>
+<p>GET method</p>
+<form method="GET" action="app">
+	<input type="text" name="m">
+	<input type="submit" value="Submit" />
+	<input type="reset" value="Reset" />
+</form>
+<p><a href="#abc" onclick="ur()">link</a></p>
 </body>
 </html>

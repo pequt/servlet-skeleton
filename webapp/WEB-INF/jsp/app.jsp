@@ -9,5 +9,6 @@
 
 <body>
 <h1>${message}</h1>
+<p><a href="http://localhost:8080/app?m=${message}">repeat as GET</a></p>
 </body>
 </html>

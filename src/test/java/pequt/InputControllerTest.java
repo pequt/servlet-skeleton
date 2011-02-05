@@ -15,6 +15,6 @@ public class InputControllerTest {
 	
 	@Test
 	public void req() throws Exception {
-		assertEquals("/WEB-INF/jsp/input.jsp", dut.handleRequest(null, null).getViewName());
+		assertEquals("/WEB-INF/jsp/input.jsp", dut.execute().getViewName());
 	}
 }
