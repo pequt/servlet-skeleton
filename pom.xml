@@ -92,7 +92,45 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>3.0.5.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
 
+		<!-- ehcache with spring 3 annotations -->
+		<dependency>
+			<groupId>com.googlecode.ehcache-spring-annotations</groupId>
+			<artifactId>ehcache-spring-annotations</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.3.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>2.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		
 		<!-- commons -->
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -118,7 +156,7 @@
 			<version>1.6.1</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- required for exclusion of commons-logging in spring 3 core -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

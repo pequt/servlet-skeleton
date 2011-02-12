@@ -13,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import pequt.controller.AppController;
+
 @RunWith(MockitoJUnitRunner.class)
 public class AppControllerTest {
 	private AppController dut;

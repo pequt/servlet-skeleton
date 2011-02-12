@@ -9,16 +9,19 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+        
+	<context:component-scan base-package="pequt.service" />
+	<context:component-scan base-package="pequt.controller" />
 
 	<mvc:annotation-driven />
 
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/intercepted*"/>
-			<bean class="pequt.MyInterceptor" />
+			<mvc:mapping path="/intercepted*" />
+			<bean class="pequt.interceptor.MyInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
-
-	<context:component-scan base-package="pequt" />
+	
+	<import resource="classpath:spring-ehcache.xml" />
 
 </beans>

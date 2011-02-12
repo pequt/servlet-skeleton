@@ -1,4 +1,4 @@
-package pequt;
+package pequt.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,12 +13,13 @@ public class MyInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		logger.debug("in the inteceptor...");
-		if (StringUtils.isBlank(request.getParameter("m"))) {
-			logger.debug("no m paremter! redirecting...");
-			response.sendRedirect("http://www.google.co.kr");
-			return false;
+		logger.debug("in the MyInteceptor");
+		if (StringUtils.isNotBlank(request.getParameter("m"))) {
+			return true;
 		}
-		return true;
+
+		logger.debug("no m paremter - redirecting");
+		response.sendRedirect("http://www.github.com");
+		return false;
 	}
 }

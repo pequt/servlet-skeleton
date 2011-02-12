@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import pequt.controller.InputController;
+
 public class InputControllerTest {
 	private InputController dut;
 
