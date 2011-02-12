@@ -26,6 +26,6 @@ public class SimpleParamControllerTest {
 	@Test
 	public void execute_default() throws Exception {
 		Map<String, Object> result = dut.execute(null).getModel();
-		assertEquals("가나다", result.get("message"));
+		assertEquals("", result.get("message"));
 	}
 }

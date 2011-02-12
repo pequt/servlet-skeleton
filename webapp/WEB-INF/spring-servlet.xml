@@ -23,5 +23,6 @@
 	</mvc:interceptors>
 	
 	<import resource="classpath:spring-ehcache.xml" />
+	<import resource="classpath:spring-jackson.xml" />
 
 </beans>

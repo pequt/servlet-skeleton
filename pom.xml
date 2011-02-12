@@ -124,6 +124,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<!-- needed for class level cache support in ehcache (using spring 3 aop), default is inteface only -->
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
@@ -136,6 +138,13 @@
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
+		</dependency>
+		
+		<!-- jackson json parser / generator -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.7.2</version>
 		</dependency>
 
 		<!-- log4j + slj4j facade -->
@@ -180,4 +189,12 @@
 		</dependency>
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>codehaus</id>
+			<name>codehaus</name>
+			<url>http://repository.codehaus.org</url>
+		</repository>
+	</repositories>
+	
 </project>
