@@ -1,4 +1,4 @@
-package pequt;
+package pequt.controller;
 
 import static org.junit.Assert.*;
 
