@@ -12,7 +12,4 @@
         
 	<context:component-scan base-package="pequt.service" />
 	
-	<import resource="applicationContext-ehcache.xml" />
-	<import resource="applicationContext-jackson.xml" />
-
 </beans>

@@ -9,7 +9,6 @@
 </head>
 
 <body>
-<h1>your "m" parameter was...</h1>
-<p><c:out value="${message}"/></a></p>
+<h1>Welcome to SERVLET ROOT!</h1>
 </body>
 </html>

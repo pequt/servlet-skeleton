@@ -16,7 +16,7 @@
 
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/intercepted*" />
+			<mvc:mapping path="/*" />
 			<bean class="pequt.interceptor.MyInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

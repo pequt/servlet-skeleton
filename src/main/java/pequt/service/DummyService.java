@@ -5,13 +5,10 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import com.googlecode.ehcache.annotations.Cacheable;
-
 @Service
-public class CachedMyService {
-	@Cacheable(cacheName = "myService")
+public class DummyService {
 	public String currentTime() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		return sdf.format(new Date());
 	}
 }

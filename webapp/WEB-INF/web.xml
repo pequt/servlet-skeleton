@@ -16,12 +16,10 @@
 
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
-		<url-pattern>/</url-pattern>
-		<load-on-startup>1</load-on-startup>
+		<url-pattern>*.test</url-pattern>
 	</servlet-mapping>
 
-	<!-- spring 3 character encoding filter, for POST only -->
-	<!-- we should avoid GET entirely if possible... too hard to get right -->
+	<!-- spring 3 character encoding filter. sometimes don't work for GET request -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

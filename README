@@ -3,15 +3,17 @@ from 2011-02-04
 simple servlet-skeleton, worked with/for
 
 with :
-java 1.6.0 update 23
-maven 3.0.2
-git (msysgit)
-tortoisegit
+java 1.6.0 update 23 or after
+maven 3.0.2 (2.2.1 will work, maybe...)
+git (msysgit + tortoisegit)
 
 for :
 eclipse 3.6 for java ee, WTP
-tomcat 6.0.32
+tomcat 6.0.32 (NOT tested in tomcat 7) 
 
 etc :
 should avoid commons-logging
 should avoid getting parameters from GET request now, too hard to get right
+
+should edit tomcat server.xml for UTF-8 string filter - URIEncoding="UTF-8"
+(see http://wiki.apache.org/tomcat/FAQ/CharacterEncoding)
